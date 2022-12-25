@@ -1,0 +1,43 @@
++--------+--------------------------------+--------------------------------------------------------------------------------------+---------------+----------------------------------------------------------------------------------+--------------------------+
+| Domain | Method                         | URI                                                                                  | Name          | Action
+         | Middleware               |
++--------+--------------------------------+--------------------------------------------------------------------------------------+---------------+----------------------------------------------------------------------------------+--------------------------+
+|        | POST                           | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}                                    | post.login    | App\Http\Controllers\Auth\AuthController@postLogin
+         | mainten,guest            |
+|        | GET|HEAD                       | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}                                    | get.login     | App\Http\Controllers\Auth\AuthController@getLogin
+         | mainten,guest            |
+|        | GET|HEAD                       | auth/logout/{one?}/{two?}/{three?}/{four?}/{five?}                                   | logout        | App\Http\Controllers\Auth\AuthController@getLogout
+         | mainten                  |
+|        | GET|HEAD                       | auth/register/{one?}/{two?}/{three?}/{four?}/{five?}                                 | get.register  | App\Http\Controllers\Auth\AuthController@getRegister
+         | mainten,guest            |
+|        | POST                           | auth/register/{one?}/{two?}/{three?}/{four?}/{five?}                                 | post.register | App\Http\Controllers\Auth\AuthController@postRegister
+         | mainten,guest            |
+|        | GET|HEAD                       | /                                                                                    |               | Closure
+         | mainten                  |
+|        | GET|HEAD                       | top/csv/{one?}/{two?}/{three?}/{four?}/{five?}                                       |               | App\Http\Controllers\Top\GraphController@getCsv
+         | auth,mainten             |
+|        | GET|HEAD                       | top/index/{one?}/{two?}/{three?}/{four?}/{five?}                                     |               | App\Http\Controllers\Top\GraphController@getIndex
+         | auth,mainten             |
+|        | GET|HEAD                       | top/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\Top\GraphController@getInsuranceContactMinData
+         | auth,mainten             |
+|        | GET|HEAD                       | top/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Top\GraphController@getMaxMinData
+         | auth,mainten             |
+|        | GET|HEAD                       | top/pager/{one?}/{two?}/{three?}/{four?}/{five?}                                     |               | App\Http\Controllers\Top\GraphController@getPager
+         | auth,mainten             |
+|        | GET|HEAD                       | top/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Top\GraphController@getSearchParams
+         | auth,mainten             |
+|        | GET|HEAD                       | top/search/{one?}/{two?}/{three?}/{four?}/{five?}                                    |               | App\Http\Controllers\Top\GraphController@getSearch
+         | auth,mainten             |
+|        | GET|HEAD                       | top/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Top\GraphController@getSortParams
+         | auth,mainten             |
+|        | GET|HEAD                       | top/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                                |               | App\Http\Controllers\Top\GraphController@getSortValue
+         | auth,mainten             |
+|        | GET|HEAD                       | top/sort/{one?}/{two?}/{three?}/{four?}/{five?}                                      |               | App\Http\Controllers\Top\GraphController@getSort
+         | auth,mainten             |
+|        | POST                           | top/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Top\GraphController@postStaffEachBase
+         | auth,mainten             |
+|        | GET|HEAD                       | top/summary-by-staff/{one?}/{two?}/{three?}/{four?}/{five?}                          |               | App\Http\Controllers\Top\GraphController@getSummaryByStaff
+         | auth,mainten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | top/{_missing}                                                                       |               | App\Http\Controllers\Top\GraphController@missingMethod
+         | auth,mainten             |
++--------+--------------------------------+------------------------------------------------------------------------

@@ -1,0 +1,999 @@
++--------+--------------------------------+--------------------------------------------------------------------------------------+---------------+----------------------------------------------------------------------------------+--------------------------+
+| Domain | Method                         | URI                                                                                  | Name          | Action                                                                           | Middlewa
+re               |
++--------+--------------------------------+--------------------------------------------------------------------------------------+---------------+----------------------------------------------------------------------------------+--------------------------+
+|        | GET|HEAD                       | /                                                                                    |               | Closure                                                                          | mainten 
+                 |
+|        | GET|HEAD                       | auth                                                                                 |               | Closure                                                                          | mainten 
+                 |
+|        | POST                           | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}                                    | post.login    | App\Http\Controllers\Auth\AuthController@postLogin                               | mainten,
+guest            |
+|        | GET|HEAD                       | auth/login/{one?}/{two?}/{three?}/{four?}/{five?}                                    | get.login     | App\Http\Controllers\Auth\AuthController@getLogin                                | mainten,
+guest            |
+|        | GET|HEAD                       | auth/logout/{one?}/{two?}/{three?}/{four?}/{five?}                                   | logout        | App\Http\Controllers\Auth\AuthController@getLogout                               | mainten 
+                 |
+|        | GET|HEAD                       | auth/register/{one?}/{two?}/{three?}/{four?}/{five?}                                 | get.register  | App\Http\Controllers\Auth\AuthController@getRegister                             | mainten,
+guest            |
+|        | POST                           | auth/register/{one?}/{two?}/{three?}/{four?}/{five?}                                 | post.register | App\Http\Controllers\Auth\AuthController@postRegister                            | mainten,
+guest            |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | auth/{_missing}                                                                      |               | App\Http\Controllers\Auth\AuthController@missingMethod                           | mainten,
+guest            |
+|        | GET|HEAD                       | dm/collect                                                                           |               | App\Http\Controllers\Dm\DmCollectController@getIndex                             | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/csv/{one?}/{two?}/{three?}/{four?}/{five?}                                |               | App\Http\Controllers\Dm\DmCollectController@getCsv                               | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/dm/{one?}/{two?}/{three?}/{four?}/{five?}                                 |               | App\Http\Controllers\Dm\DmCollectController@getDm                                | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/each-staff/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\Dm\DmCollectController@getEachStaff                         | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/index/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Dm\DmCollectController@getIndex                             | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}         |               | App\Http\Controllers\Dm\DmCollectController@getInsuranceContactMinData           | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Dm\DmCollectController@getMaxMinData                        | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/pager/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Dm\DmCollectController@getPager                             | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Dm\DmCollectController@getSearchParams                      | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/search/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Dm\DmCollectController@getSearch                            | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Dm\DmCollectController@getSortParams                        | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\Dm\DmCollectController@getSortValue                         | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/collect/sort/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Dm\DmCollectController@getSort                              | auth,mai
+nten             |
+|        | POST                           | dm/collect/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Dm\DmCollectController@postStaffEachBase                    | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | dm/collect/{_missing}                                                                |               | App\Http\Controllers\Dm\DmCollectController@missingMethod                        | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/confirm                                                                           |               | App\Http\Controllers\Dm\DmConfirmController@getIndex                             | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/confirm/index/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Dm\DmConfirmController@getIndex                             | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/confirm/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}         |               | App\Http\Controllers\Dm\DmConfirmController@getInsuranceContactMinData           | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/confirm/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Dm\DmConfirmController@getMaxMinData                        | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/confirm/pager/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Dm\DmConfirmController@getPager                             | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/confirm/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Dm\DmConfirmController@getSearchParams                      | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/confirm/search/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Dm\DmConfirmController@getSearch                            | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/confirm/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Dm\DmConfirmController@getSortParams                        | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/confirm/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\Dm\DmConfirmController@getSortValue                         | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/confirm/sort/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Dm\DmConfirmController@getSort                              | auth,mai
+nten             |
+|        | POST                           | dm/confirm/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Dm\DmConfirmController@postStaffEachBase                    | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | dm/confirm/{_missing}                                                                |               | App\Http\Controllers\Dm\DmConfirmController@missingMethod                        | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_syaken                                                                         |               | App\Http\Controllers\Dm\DmSyakenController@getIndex                              | auth,mai
+nten             |
+|        | POST                           | dm/dm_syaken/bulk-update/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Dm\DmSyakenController@postBulkUpdate                        | auth,mai
+nten             |
+|        | POST                           | dm/dm_syaken/dm-check/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\Dm\DmSyakenController@postDmCheck                           | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_syaken/index/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Dm\DmSyakenController@getIndex                              | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_syaken/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}       |               | App\Http\Controllers\Dm\DmSyakenController@getInsuranceContactMinData            | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_syaken/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Dm\DmSyakenController@getMaxMinData                         | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_syaken/pager/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Dm\DmSyakenController@getPager                              | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_syaken/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Dm\DmSyakenController@getSearchParams                       | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_syaken/search/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Dm\DmSyakenController@getSearch                             | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_syaken/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Dm\DmSyakenController@getSortParams                         | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_syaken/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Dm\DmSyakenController@getSortValue                          | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_syaken/sort/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Dm\DmSyakenController@getSort                               | auth,mai
+nten             |
+|        | POST                           | dm/dm_syaken/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\Dm\DmSyakenController@postStaffEachBase                     | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | dm/dm_syaken/{_missing}                                                              |               | App\Http\Controllers\Dm\DmSyakenController@missingMethod                         | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken                                                                         |               | App\Http\Controllers\Dm\DmTenkenController@getIndex                              | auth,mai
+nten             |
+|        | POST                           | dm/dm_tenken/bulk-update/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Dm\DmTenkenController@postBulkUpdate                        | auth,mai
+nten             |
+|        | POST                           | dm/dm_tenken/dm-check/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\Dm\DmTenkenController@postDmCheck                           | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken/index/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Dm\DmTenkenController@getIndex                              | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}       |               | App\Http\Controllers\Dm\DmTenkenController@getInsuranceContactMinData            | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Dm\DmTenkenController@getMaxMinData                         | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken/pager/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Dm\DmTenkenController@getPager                              | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Dm\DmTenkenController@getSearchParams                       | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken/search/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Dm\DmTenkenController@getSearch                             | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Dm\DmTenkenController@getSortParams                         | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Dm\DmTenkenController@getSortValue                          | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken/sort/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Dm\DmTenkenController@getSort                               | auth,mai
+nten             |
+|        | POST                           | dm/dm_tenken/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\Dm\DmTenkenController@postStaffEachBase                     | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | dm/dm_tenken/{_missing}                                                              |               | App\Http\Controllers\Dm\DmTenkenController@missingMethod                         | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken_last                                                                    |               | App\Http\Controllers\Dm\DmTenkenLastController@getIndex                          | auth,mai
+nten             |
+|        | POST                           | dm/dm_tenken_last/bulk-update/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Dm\DmTenkenLastController@postBulkUpdate                    | auth,mai
+nten             |
+|        | POST                           | dm/dm_tenken_last/dm-check/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Dm\DmTenkenLastController@postDmCheck                       | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken_last/index/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Dm\DmTenkenLastController@getIndex                          | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken_last/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}  |               | App\Http\Controllers\Dm\DmTenkenLastController@getInsuranceContactMinData        | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken_last/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\Dm\DmTenkenLastController@getMaxMinData                     | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken_last/pager/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Dm\DmTenkenLastController@getPager                          | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken_last/search-params/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\Dm\DmTenkenLastController@getSearchParams                   | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken_last/search/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Dm\DmTenkenLastController@getSearch                         | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken_last/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Dm\DmTenkenLastController@getSortParams                     | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken_last/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\Dm\DmTenkenLastController@getSortValue                      | auth,mai
+nten             |
+|        | GET|HEAD                       | dm/dm_tenken_last/sort/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Dm\DmTenkenLastController@getSort                           | auth,mai
+nten             |
+|        | POST                           | dm/dm_tenken_last/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}             |               | App\Http\Controllers\Dm\DmTenkenLastController@postStaffEachBase                 | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | dm/dm_tenken_last/{_missing}                                                         |               | App\Http\Controllers\Dm\DmTenkenLastController@missingMethod                     | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect                                                                    |               | App\Http\Controllers\DmHanyou\DmCollectController@getIndex                       | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect/csv/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\DmHanyou\DmCollectController@getCsv                         | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect/each-staff/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\DmHanyou\DmCollectController@getEachStaff                   | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect/index/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\DmHanyou\DmCollectController@getIndex                       | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}  |               | App\Http\Controllers\DmHanyou\DmCollectController@getInsuranceContactMinData     | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\DmHanyou\DmCollectController@getMaxMinData                  | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect/pager/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\DmHanyou\DmCollectController@getPager                       | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect/search-params/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\DmHanyou\DmCollectController@getSearchParams                | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect/search/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\DmHanyou\DmCollectController@getSearch                      | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\DmHanyou\DmCollectController@getSortParams                  | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\DmHanyou\DmCollectController@getSortValue                   | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/collect/sort/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\DmHanyou\DmCollectController@getSort                        | auth,mai
+nten             |
+|        | POST                           | dm_hanyou/collect/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}             |               | App\Http\Controllers\DmHanyou\DmCollectController@postStaffEachBase              | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | dm_hanyou/collect/{_missing}                                                         |               | App\Http\Controllers\DmHanyou\DmCollectController@missingMethod                  | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/confirm                                                                    |               | App\Http\Controllers\DmHanyou\DmConfirmController@getIndex                       | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/confirm/index/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\DmHanyou\DmConfirmController@getIndex                       | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/confirm/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}  |               | App\Http\Controllers\DmHanyou\DmConfirmController@getInsuranceContactMinData     | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/confirm/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\DmHanyou\DmConfirmController@getMaxMinData                  | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/confirm/pager/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\DmHanyou\DmConfirmController@getPager                       | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/confirm/search-params/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\DmHanyou\DmConfirmController@getSearchParams                | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/confirm/search/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\DmHanyou\DmConfirmController@getSearch                      | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/confirm/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\DmHanyou\DmConfirmController@getSortParams                  | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/confirm/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\DmHanyou\DmConfirmController@getSortValue                   | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/confirm/sort/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\DmHanyou\DmConfirmController@getSort                        | auth,mai
+nten             |
+|        | POST                           | dm_hanyou/confirm/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}             |               | App\Http\Controllers\DmHanyou\DmConfirmController@postStaffEachBase              | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | dm_hanyou/confirm/{_missing}                                                         |               | App\Http\Controllers\DmHanyou\DmConfirmController@missingMethod                  | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/dm                                                                         |               | App\Http\Controllers\DmHanyou\DmHanyouController@getIndex                        | auth,mai
+nten             |
+|        | POST                           | dm_hanyou/dm/bulk-update/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\DmHanyou\DmHanyouController@postBulkUpdate                  | auth,mai
+nten             |
+|        | POST                           | dm_hanyou/dm/dm-check/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\DmHanyou\DmHanyouController@postDmCheck                     | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/dm/index/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\DmHanyou\DmHanyouController@getIndex                        | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/dm/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}       |               | App\Http\Controllers\DmHanyou\DmHanyouController@getInsuranceContactMinData      | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/dm/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\DmHanyou\DmHanyouController@getMaxMinData                   | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/dm/pager/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\DmHanyou\DmHanyouController@getPager                        | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/dm/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\DmHanyou\DmHanyouController@getSearchParams                 | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/dm/search/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\DmHanyou\DmHanyouController@getSearch                       | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/dm/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\DmHanyou\DmHanyouController@getSortParams                   | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/dm/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\DmHanyou\DmHanyouController@getSortValue                    | auth,mai
+nten             |
+|        | GET|HEAD                       | dm_hanyou/dm/sort/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\DmHanyou\DmHanyouController@getSort                         | auth,mai
+nten             |
+|        | POST                           | dm_hanyou/dm/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\DmHanyou\DmHanyouController@postStaffEachBase               | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | dm_hanyou/dm/{_missing}                                                              |               | App\Http\Controllers\DmHanyou\DmHanyouController@missingMethod                   | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou                                                                    |               | App\Http\Controllers\Graph\SyakenIkouController@getIndex                         | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/credit-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}          |               | App\Http\Controllers\Graph\SyakenIkouController@getCreditEditSubmit              | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/credit-edit/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Graph\SyakenIkouController@getCreditEdit                    | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/dentatsu-memo-submit/{one?}/{two?}/{three?}/{four?}/{five?}        |               | App\Http\Controllers\Graph\SyakenIkouController@getDentatsuMemoSubmit            | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/dentatsu-memo/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\Graph\SyakenIkouController@getDentatsuMemo                  | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/hoken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}           |               | App\Http\Controllers\Graph\SyakenIkouController@getHokenEditSubmit               | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/hoken-edit/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\Graph\SyakenIkouController@getHokenEdit                     | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/index/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Graph\SyakenIkouController@getIndex                         | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}  |               | App\Http\Controllers\Graph\SyakenIkouController@getInsuranceContactMinData       | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\Graph\SyakenIkouController@getMaxMinData                    | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/pager/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Graph\SyakenIkouController@getPager                         | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/search-params/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\Graph\SyakenIkouController@getSearchParams                  | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/search/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Graph\SyakenIkouController@getSearch                        | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Graph\SyakenIkouController@getSortParams                    | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\Graph\SyakenIkouController@getSortValue                     | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/sort/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Graph\SyakenIkouController@getSort                          | auth,mai
+nten             |
+|        | POST                           | graph/syaken_ikou/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}             |               | App\Http\Controllers\Graph\SyakenIkouController@postStaffEachBase                | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/syatenken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}       |               | App\Http\Controllers\Graph\SyakenIkouController@getSyatenkenEditSubmit           | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/syaken_ikou/syatenken-edit/{one?}/{two?}/{three?}/{four?}/{five?}              |               | App\Http\Controllers\Graph\SyakenIkouController@getSyatenkenEdit                 | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | graph/syaken_ikou/{_missing}                                                         |               | App\Http\Controllers\Graph\SyakenIkouController@missingMethod                    | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou                                                                    |               | App\Http\Controllers\Graph\TenkenIkouController@getIndex                         | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/credit-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}          |               | App\Http\Controllers\Graph\TenkenIkouController@getCreditEditSubmit              | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/credit-edit/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Graph\TenkenIkouController@getCreditEdit                    | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/dentatsu-memo-submit/{one?}/{two?}/{three?}/{four?}/{five?}        |               | App\Http\Controllers\Graph\TenkenIkouController@getDentatsuMemoSubmit            | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/dentatsu-memo/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\Graph\TenkenIkouController@getDentatsuMemo                  | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/hoken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}           |               | App\Http\Controllers\Graph\TenkenIkouController@getHokenEditSubmit               | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/hoken-edit/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\Graph\TenkenIkouController@getHokenEdit                     | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/index/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Graph\TenkenIkouController@getIndex                         | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}  |               | App\Http\Controllers\Graph\TenkenIkouController@getInsuranceContactMinData       | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\Graph\TenkenIkouController@getMaxMinData                    | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/pager/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Graph\TenkenIkouController@getPager                         | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/search-params/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\Graph\TenkenIkouController@getSearchParams                  | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/search/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Graph\TenkenIkouController@getSearch                        | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Graph\TenkenIkouController@getSortParams                    | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\Graph\TenkenIkouController@getSortValue                     | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/sort/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Graph\TenkenIkouController@getSort                          | auth,mai
+nten             |
+|        | POST                           | graph/tenken_ikou/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}             |               | App\Http\Controllers\Graph\TenkenIkouController@postStaffEachBase                | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/syatenken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}       |               | App\Http\Controllers\Graph\TenkenIkouController@getSyatenkenEditSubmit           | auth,mai
+nten             |
+|        | GET|HEAD                       | graph/tenken_ikou/syatenken-edit/{one?}/{two?}/{three?}/{four?}/{five?}              |               | App\Http\Controllers\Graph\TenkenIkouController@getSyatenkenEdit                 | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | graph/tenken_ikou/{_missing}                                                         |               | App\Http\Controllers\Graph\TenkenIkouController@missingMethod                    | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou                                                                           |               | App\Http\Controllers\Hoken\HokenIkouController@getIndex                          | auth,mai
+nten             |
+|        | PUT                            | hoken/ikou/create-insurance/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Hoken\HokenIkouController@putCreateInsurance                | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/create-kaiyaku/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Hoken\HokenIkouController@getCreateKaiyaku                  | auth,mai
+nten             |
+|        | PUT                            | hoken/ikou/create-kaiyaku/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Hoken\HokenIkouController@putCreateKaiyaku                  | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/create/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Hoken\HokenIkouController@getCreate                         | auth,mai
+nten             |
+|        | PUT                            | hoken/ikou/create/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Hoken\HokenIkouController@putCreate                         | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/credit-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Hoken\HokenIkouController@getCreditEditSubmit               | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/credit-edit/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Hoken\HokenIkouController@getCreditEdit                     | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/csv-all/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Hoken\HokenIkouController@getCsvAll                         | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/csv/{one?}/{two?}/{three?}/{four?}/{five?}                                |               | App\Http\Controllers\Hoken\HokenIkouController@getCsv                            | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/dentatsu-memo-submit/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\Hoken\HokenIkouController@getDentatsuMemoSubmit             | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/dentatsu-memo/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Hoken\HokenIkouController@getDentatsuMemo                   | auth,mai
+nten             |
+|        | PUT                            | hoken/ikou/edit-kaiyaku/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Hoken\HokenIkouController@putEditKaiyaku                    | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/edit-kaiyaku/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Hoken\HokenIkouController@getEditKaiyaku                    | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/edit/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Hoken\HokenIkouController@getEdit                           | auth,mai
+nten             |
+|        | PUT                            | hoken/ikou/edit/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Hoken\HokenIkouController@putEdit                           | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/hoken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\Hoken\HokenIkouController@getHokenEditSubmit                | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/hoken-edit/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\Hoken\HokenIkouController@getHokenEdit                      | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/index/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Hoken\HokenIkouController@getIndex                          | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}         |               | App\Http\Controllers\Hoken\HokenIkouController@getInsuranceContactMinData        | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Hoken\HokenIkouController@getMaxMinData                     | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/pager/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Hoken\HokenIkouController@getPager                          | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Hoken\HokenIkouController@getSearchParams                   | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/search/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Hoken\HokenIkouController@getSearch                         | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Hoken\HokenIkouController@getSortParams                     | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\Hoken\HokenIkouController@getSortValue                      | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/sort/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Hoken\HokenIkouController@getSort                           | auth,mai
+nten             |
+|        | POST                           | hoken/ikou/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Hoken\HokenIkouController@postStaffEachBase                 | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/syatenken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}              |               | App\Http\Controllers\Hoken\HokenIkouController@getSyatenkenEditSubmit            | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/ikou/syatenken-edit/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Hoken\HokenIkouController@getSyatenkenEdit                  | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | hoken/ikou/{_missing}                                                                |               | App\Http\Controllers\Hoken\HokenIkouController@missingMethod                     | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku                                                                   |               | App\Http\Controllers\Hoken\HokenKeizokuController@getIndex                       | auth,mai
+nten             |
+|        | PUT                            | hoken/list_keizoku/create-insurance/{one?}/{two?}/{three?}/{four?}/{five?}           |               | App\Http\Controllers\Hoken\HokenKeizokuController@putCreateInsurance             | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/create-insurance/{one?}/{two?}/{three?}/{four?}/{five?}           |               | App\Http\Controllers\Hoken\HokenKeizokuController@getCreateInsurance             | auth,mai
+nten             |
+|        | PUT                            | hoken/list_keizoku/create-kaiyaku/{one?}/{two?}/{three?}/{four?}/{five?}             |               | App\Http\Controllers\Hoken\HokenKeizokuController@putCreateKaiyaku               | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/create-kaiyaku/{one?}/{two?}/{three?}/{four?}/{five?}             |               | App\Http\Controllers\Hoken\HokenKeizokuController@getCreateKaiyaku               | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/create/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Hoken\HokenKeizokuController@getCreate                      | auth,mai
+nten             |
+|        | PUT                            | hoken/list_keizoku/create/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Hoken\HokenKeizokuController@putCreate                      | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/credit-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}         |               | App\Http\Controllers\Hoken\HokenKeizokuController@getCreditEditSubmit            | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/credit-edit/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\Hoken\HokenKeizokuController@getCreditEdit                  | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/csv/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Hoken\HokenKeizokuController@getCsv                         | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/dentatsu-memo-submit/{one?}/{two?}/{three?}/{four?}/{five?}       |               | App\Http\Controllers\Hoken\HokenKeizokuController@getDentatsuMemoSubmit          | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/dentatsu-memo/{one?}/{two?}/{three?}/{four?}/{five?}              |               | App\Http\Controllers\Hoken\HokenKeizokuController@getDentatsuMemo                | auth,mai
+nten             |
+|        | PUT                            | hoken/list_keizoku/edit-kaiyaku/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\Hoken\HokenKeizokuController@putEditKaiyaku                 | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/edit-kaiyaku/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\Hoken\HokenKeizokuController@getEditKaiyaku                 | auth,mai
+nten             |
+|        | PUT                            | hoken/list_keizoku/edit/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Hoken\HokenKeizokuController@putEdit                        | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/edit/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Hoken\HokenKeizokuController@getEdit                        | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/hoken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}          |               | App\Http\Controllers\Hoken\HokenKeizokuController@getHokenEditSubmit             | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/hoken-edit/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Hoken\HokenKeizokuController@getHokenEdit                   | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/index/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Hoken\HokenKeizokuController@getIndex                       | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?} |               | App\Http\Controllers\Hoken\HokenKeizokuController@getInsuranceContactMinData     | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\Hoken\HokenKeizokuController@getMaxMinData                  | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/pager/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Hoken\HokenKeizokuController@getPager                       | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/search-params/{one?}/{two?}/{three?}/{four?}/{five?}              |               | App\Http\Controllers\Hoken\HokenKeizokuController@getSearchParams                | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/search/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Hoken\HokenKeizokuController@getSearch                      | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\Hoken\HokenKeizokuController@getSortParams                  | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Hoken\HokenKeizokuController@getSortValue                   | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/sort/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Hoken\HokenKeizokuController@getSort                        | auth,mai
+nten             |
+|        | POST                           | hoken/list_keizoku/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}            |               | App\Http\Controllers\Hoken\HokenKeizokuController@postStaffEachBase              | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/syatenken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}      |               | App\Http\Controllers\Hoken\HokenKeizokuController@getSyatenkenEditSubmit         | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/list_keizoku/syatenken-edit/{one?}/{two?}/{three?}/{four?}/{five?}             |               | App\Http\Controllers\Hoken\HokenKeizokuController@getSyatenkenEdit               | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | hoken/list_keizoku/{_missing}                                                        |               | App\Http\Controllers\Hoken\HokenKeizokuController@missingMethod                  | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result                                                                         |               | App\Http\Controllers\Hoken\HokenResultController@getIndex                        | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result/csv/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Hoken\HokenResultController@getCsv                          | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result/each-staff/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Hoken\HokenResultController@getEachStaff                    | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result/index/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Hoken\HokenResultController@getIndex                        | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}       |               | App\Http\Controllers\Hoken\HokenResultController@getInsuranceContactMinData      | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Hoken\HokenResultController@getMaxMinData                   | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result/pager/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Hoken\HokenResultController@getPager                        | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Hoken\HokenResultController@getSearchParams                 | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result/search/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Hoken\HokenResultController@getSearch                       | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Hoken\HokenResultController@getSortParams                   | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Hoken\HokenResultController@getSortValue                    | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result/sort/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Hoken\HokenResultController@getSort                         | auth,mai
+nten             |
+|        | POST                           | hoken/result/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\Hoken\HokenResultController@postStaffEachBase               | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | hoken/result/{_missing}                                                              |               | App\Http\Controllers\Hoken\HokenResultController@missingMethod                   | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result_staff                                                                   |               | App\Http\Controllers\Hoken\HokenResultStaffController@getIndex                   | auth,mai
+nten             |
+|        | POST                           | hoken/result_staff/edit/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Hoken\HokenResultStaffController@postEdit                   | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result_staff/index/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Hoken\HokenResultStaffController@getIndex                   | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result_staff/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?} |               | App\Http\Controllers\Hoken\HokenResultStaffController@getInsuranceContactMinData | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result_staff/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\Hoken\HokenResultStaffController@getMaxMinData              | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result_staff/pager/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Hoken\HokenResultStaffController@getPager                   | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result_staff/search-params/{one?}/{two?}/{three?}/{four?}/{five?}              |               | App\Http\Controllers\Hoken\HokenResultStaffController@getSearchParams            | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result_staff/search/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Hoken\HokenResultStaffController@getSearch                  | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result_staff/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\Hoken\HokenResultStaffController@getSortParams              | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result_staff/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Hoken\HokenResultStaffController@getSortValue               | auth,mai
+nten             |
+|        | GET|HEAD                       | hoken/result_staff/sort/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Hoken\HokenResultStaffController@getSort                    | auth,mai
+nten             |
+|        | POST                           | hoken/result_staff/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}            |               | App\Http\Controllers\Hoken\HokenResultStaffController@postStaffEachBase          | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | hoken/result_staff/{_missing}                                                        |               | App\Http\Controllers\Hoken\HokenResultStaffController@missingMethod              | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/base                                                                          |               | App\Http\Controllers\Honsya\BaseController@getIndex                              | auth,mai
+nten,RoleTentyou |
+|        | PUT                            | honsya/base/create/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Honsya\BaseController@putCreate                             | auth,mai
+nten,RoleTentyou |
+|        | GET|HEAD                       | honsya/base/create/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Honsya\BaseController@getCreate                             | auth,mai
+nten,RoleTentyou |
+|        | PUT                            | honsya/base/edit/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Honsya\BaseController@putEdit                               | auth,mai
+nten,RoleTentyou |
+|        | GET|HEAD                       | honsya/base/edit/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Honsya\BaseController@getEdit                               | auth,mai
+nten,RoleTentyou |
+|        | GET|HEAD                       | honsya/base/index/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Honsya\BaseController@getIndex                              | auth,mai
+nten,RoleTentyou |
+|        | GET|HEAD                       | honsya/base/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}        |               | App\Http\Controllers\Honsya\BaseController@getInsuranceContactMinData            | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/base/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Honsya\BaseController@getMaxMinData                         | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/base/pager/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Honsya\BaseController@getPager                              | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/base/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Honsya\BaseController@getSearchParams                       | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/base/search/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Honsya\BaseController@getSearch                             | auth,mai
+nten,RoleTentyou |
+|        | GET|HEAD                       | honsya/base/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Honsya\BaseController@getSortParams                         | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/base/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Honsya\BaseController@getSortValue                          | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/base/sort/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Honsya\BaseController@getSort                               | auth,mai
+nten,RoleTentyou |
+|        | POST                           | honsya/base/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Honsya\BaseController@postStaffEachBase                     | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | honsya/base/{_missing}                                                               |               | App\Http\Controllers\Honsya\BaseController@missingMethod                         | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info                                                                          |               | App\Http\Controllers\Honsya\InfoController@getIndex                              | auth,mai
+nten             |
+|        | PUT                            | honsya/info/create/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Honsya\InfoController@putCreate                             | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info/create/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Honsya\InfoController@getCreate                             | auth,mai
+nten             |
+|        | PUT                            | honsya/info/edit/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Honsya\InfoController@putEdit                               | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info/edit/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Honsya\InfoController@getEdit                               | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info/index/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Honsya\InfoController@getIndex                              | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}        |               | App\Http\Controllers\Honsya\InfoController@getInsuranceContactMinData            | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Honsya\InfoController@getMaxMinData                         | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info/pager/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Honsya\InfoController@getPager                              | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Honsya\InfoController@getSearchParams                       | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info/search/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Honsya\InfoController@getSearch                             | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Honsya\InfoController@getSortParams                         | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Honsya\InfoController@getSortValue                          | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/info/sort/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Honsya\InfoController@getSort                               | auth,mai
+nten             |
+|        | POST                           | honsya/info/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Honsya\InfoController@postStaffEachBase                     | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | honsya/info/{_missing}                                                               |               | App\Http\Controllers\Honsya\InfoController@missingMethod                         | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/log                                                                           |               | App\Http\Controllers\Honsya\LogMonthController@getIndex                          | auth,mai
+nten             |
+|        | POST                           | honsya/log/download/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Honsya\LogMonthController@postDownload                      | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/log/index/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Honsya\LogMonthController@getIndex                          | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/log/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}         |               | App\Http\Controllers\Honsya\LogMonthController@getInsuranceContactMinData        | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/log/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Honsya\LogMonthController@getMaxMinData                     | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/log/pager/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Honsya\LogMonthController@getPager                          | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/log/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Honsya\LogMonthController@getSearchParams                   | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/log/search/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Honsya\LogMonthController@getSearch                         | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/log/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Honsya\LogMonthController@getSortParams                     | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/log/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\Honsya\LogMonthController@getSortValue                      | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/log/sort/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Honsya\LogMonthController@getSort                           | auth,mai
+nten             |
+|        | POST                           | honsya/log/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Honsya\LogMonthController@postStaffEachBase                 | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | honsya/log/{_missing}                                                                |               | App\Http\Controllers\Honsya\LogMonthController@missingMethod                     | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/upload/{one?}/{two?}/{three?}/{four?}/{five?}                                 |               | App\Http\Controllers\Honsya\CsvController@getUpload                              | auth,mai
+nten             |
+|        | POST                           | honsya/upload/{one?}/{two?}/{three?}/{four?}/{five?}                                 | post.honsya   | App\Http\Controllers\Honsya\CsvController@postUpload                             | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user                                                                          |               | App\Http\Controllers\Honsya\UserController@getIndex                              | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user/create/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Honsya\UserController@getCreate                             | auth,mai
+nten             |
+|        | PUT                            | honsya/user/create/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Honsya\UserController@putCreate                             | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user/edit/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Honsya\UserController@getEdit                               | auth,mai
+nten             |
+|        | PUT                            | honsya/user/edit/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Honsya\UserController@putEdit                               | auth,mai
+nten             |
+|        | DELETE                         | honsya/user/face-image/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Honsya\UserController@deleteFaceImage                       | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user/index/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Honsya\UserController@getIndex                              | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}        |               | App\Http\Controllers\Honsya\UserController@getInsuranceContactMinData            | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Honsya\UserController@getMaxMinData                         | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user/pager/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Honsya\UserController@getPager                              | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Honsya\UserController@getSearchParams                       | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user/search/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Honsya\UserController@getSearch                             | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Honsya\UserController@getSortParams                         | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Honsya\UserController@getSortValue                          | auth,mai
+nten             |
+|        | GET|HEAD                       | honsya/user/sort/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Honsya\UserController@getSort                               | auth,mai
+nten             |
+|        | POST                           | honsya/user/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Honsya\UserController@postStaffEachBase                     | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | honsya/user/{_missing}                                                               |               | App\Http\Controllers\Honsya\UserController@missingMethod                         | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | honsya/{_missing}                                                                    |               | App\Http\Controllers\Honsya\CsvController@missingMethod                          | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer                                                                        |               | App\Http\Controllers\Main\CustomerController@getIndex                            | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/credit-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}              |               | App\Http\Controllers\Main\CustomerController@getCreditEditSubmit                 | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/credit-edit/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Main\CustomerController@getCreditEdit                       | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/csv/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Main\CustomerController@getCsv                              | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/dentatsu-memo-submit/{one?}/{two?}/{three?}/{four?}/{five?}            |               | App\Http\Controllers\Main\CustomerController@getDentatsuMemoSubmit               | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/dentatsu-memo/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Main\CustomerController@getDentatsuMemo                     | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/hoken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}               |               | App\Http\Controllers\Main\CustomerController@getHokenEditSubmit                  | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/hoken-edit/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Main\CustomerController@getHokenEdit                        | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/index/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Main\CustomerController@getIndex                            | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}      |               | App\Http\Controllers\Main\CustomerController@getInsuranceContactMinData          | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Main\CustomerController@getMaxMinData                       | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/pager/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Main\CustomerController@getPager                            | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Main\CustomerController@getSearchParams                     | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/search/{one?}/{two?}/{three?}/{four?}/{five?}                          |               | App\Http\Controllers\Main\CustomerController@getSearch                           | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Main\CustomerController@getSortParams                       | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Main\CustomerController@getSortValue                        | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/sort/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Main\CustomerController@getSort                             | auth,mai
+nten             |
+|        | POST                           | main/customer/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Main\CustomerController@postStaffEachBase                   | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/syatenken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}           |               | App\Http\Controllers\Main\CustomerController@getSyatenkenEditSubmit              | auth,mai
+nten             |
+|        | GET|HEAD                       | main/customer/syatenken-edit/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\Main\CustomerController@getSyatenkenEdit                    | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | main/customer/{_missing}                                                             |               | App\Http\Controllers\Main\CustomerController@missingMethod                       | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken                                                                          |               | App\Http\Controllers\Main\SyakenController@getIndex                              | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/credit-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\Main\SyakenController@getCreditEditSubmit                   | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/credit-edit/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Main\SyakenController@getCreditEdit                         | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/csv/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Main\SyakenController@getCsv                                | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/dentatsu-memo-submit/{one?}/{two?}/{three?}/{four?}/{five?}              |               | App\Http\Controllers\Main\SyakenController@getDentatsuMemoSubmit                 | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/dentatsu-memo/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Main\SyakenController@getDentatsuMemo                       | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/hoken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Main\SyakenController@getHokenEditSubmit                    | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/hoken-edit/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Main\SyakenController@getHokenEdit                          | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/index/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Main\SyakenController@getIndex                              | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}        |               | App\Http\Controllers\Main\SyakenController@getInsuranceContactMinData            | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Main\SyakenController@getMaxMinData                         | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/pager/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Main\SyakenController@getPager                              | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Main\SyakenController@getSearchParams                       | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/search/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Main\SyakenController@getSearch                             | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Main\SyakenController@getSortParams                         | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Main\SyakenController@getSortValue                          | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/sort/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Main\SyakenController@getSort                               | auth,mai
+nten             |
+|        | POST                           | main/syaken/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Main\SyakenController@postStaffEachBase                     | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/syatenken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}             |               | App\Http\Controllers\Main\SyakenController@getSyatenkenEditSubmit                | auth,mai
+nten             |
+|        | GET|HEAD                       | main/syaken/syatenken-edit/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Main\SyakenController@getSyatenkenEdit                      | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | main/syaken/{_missing}                                                               |               | App\Http\Controllers\Main\SyakenController@missingMethod                         | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken                                                                          |               | App\Http\Controllers\Main\TenkenController@getIndex                              | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/credit-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\Main\TenkenController@getCreditEditSubmit                   | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/credit-edit/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Main\TenkenController@getCreditEdit                         | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/csv/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Main\TenkenController@getCsv                                | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/dentatsu-memo-submit/{one?}/{two?}/{three?}/{four?}/{five?}              |               | App\Http\Controllers\Main\TenkenController@getDentatsuMemoSubmit                 | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/dentatsu-memo/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Main\TenkenController@getDentatsuMemo                       | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/hoken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Main\TenkenController@getHokenEditSubmit                    | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/hoken-edit/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Main\TenkenController@getHokenEdit                          | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/index/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Main\TenkenController@getIndex                              | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}        |               | App\Http\Controllers\Main\TenkenController@getInsuranceContactMinData            | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Main\TenkenController@getMaxMinData                         | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/pager/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Main\TenkenController@getPager                              | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Main\TenkenController@getSearchParams                       | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/search/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Main\TenkenController@getSearch                             | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Main\TenkenController@getSortParams                         | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Main\TenkenController@getSortValue                          | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/sort/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Main\TenkenController@getSort                               | auth,mai
+nten             |
+|        | POST                           | main/tenken/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Main\TenkenController@postStaffEachBase                     | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/syatenken-edit-submit/{one?}/{two?}/{three?}/{four?}/{five?}             |               | App\Http\Controllers\Main\TenkenController@getSyatenkenEditSubmit                | auth,mai
+nten             |
+|        | GET|HEAD                       | main/tenken/syatenken-edit/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Main\TenkenController@getSyatenkenEdit                      | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | main/tenken/{_missing}                                                               |               | App\Http\Controllers\Main\TenkenController@missingMethod                         | auth,mai
+nten             |
+|        | GET|HEAD                       | mainten                                                                              |               | App\Http\Controllers\Auth\MaintenController@index                                |
+                 |
+|        | GET|HEAD                       | mut/dm                                                                               |               | App\Http\Controllers\Mut\DmController@getIndex                                   | auth,mai
+nten,RoleAdmin   |
+|        | GET|HEAD                       | mut/dm/csv/{one?}/{two?}/{three?}/{four?}/{five?}                                    |               | App\Http\Controllers\Mut\DmController@getCsv                                     | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm/images/{one?}/{two?}/{three?}/{four?}/{five?}                                 |               | App\Http\Controllers\Mut\DmController@getImages                                  | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm/index/{one?}/{two?}/{three?}/{four?}/{five?}                                  |               | App\Http\Controllers\Mut\DmController@getIndex                                   | auth,mai
+nten,RoleAdmin   |
+|        | GET|HEAD                       | mut/dm/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}             |               | App\Http\Controllers\Mut\DmController@getInsuranceContactMinData                 | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Mut\DmController@getMaxMinData                              | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm/pager/{one?}/{two?}/{three?}/{four?}/{five?}                                  |               | App\Http\Controllers\Mut\DmController@getPager                                   | auth,mai
+nten,RoleAdmin   |
+|        | GET|HEAD                       | mut/dm/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                          |               | App\Http\Controllers\Mut\DmController@getSearchParams                            | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm/search/{one?}/{two?}/{three?}/{four?}/{five?}                                 |               | App\Http\Controllers\Mut\DmController@getSearch                                  | auth,mai
+nten,RoleAdmin   |
+|        | GET|HEAD                       | mut/dm/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Mut\DmController@getSortParams                              | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Mut\DmController@getSortValue                               | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm/sort/{one?}/{two?}/{three?}/{four?}/{five?}                                   |               | App\Http\Controllers\Mut\DmController@getSort                                    | auth,mai
+nten,RoleAdmin   |
+|        | POST                           | mut/dm/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Mut\DmController@postStaffEachBase                          | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | mut/dm/{_missing}                                                                    |               | App\Http\Controllers\Mut\DmController@missingMethod                              | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm_hanyou                                                                        |               | App\Http\Controllers\Mut\DmHanyouController@getIndex                             | auth,mai
+nten,RoleAdmin   |
+|        | GET|HEAD                       | mut/dm_hanyou/csv/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Mut\DmHanyouController@getCsv                               | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm_hanyou/images/{one?}/{two?}/{three?}/{four?}/{five?}                          |               | App\Http\Controllers\Mut\DmHanyouController@getImages                            | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm_hanyou/index/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Mut\DmHanyouController@getIndex                             | auth,mai
+nten,RoleAdmin   |
+|        | GET|HEAD                       | mut/dm_hanyou/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}      |               | App\Http\Controllers\Mut\DmHanyouController@getInsuranceContactMinData           | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm_hanyou/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Mut\DmHanyouController@getMaxMinData                        | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm_hanyou/pager/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Mut\DmHanyouController@getPager                             | auth,mai
+nten,RoleAdmin   |
+|        | GET|HEAD                       | mut/dm_hanyou/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Mut\DmHanyouController@getSearchParams                      | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm_hanyou/search/{one?}/{two?}/{three?}/{four?}/{five?}                          |               | App\Http\Controllers\Mut\DmHanyouController@getSearch                            | auth,mai
+nten,RoleAdmin   |
+|        | GET|HEAD                       | mut/dm_hanyou/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Mut\DmHanyouController@getSortParams                        | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm_hanyou/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Mut\DmHanyouController@getSortValue                         | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/dm_hanyou/sort/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Mut\DmHanyouController@getSort                              | auth,mai
+nten,RoleAdmin   |
+|        | POST                           | mut/dm_hanyou/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Mut\DmHanyouController@postStaffEachBase                    | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | mut/dm_hanyou/{_missing}                                                             |               | App\Http\Controllers\Mut\DmHanyouController@missingMethod                        | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/kekka                                                                            |               | App\Http\Controllers\Mut\KekkaController@getIndex                                | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/kekka/index/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Mut\KekkaController@getIndex                                | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/kekka/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}          |               | App\Http\Controllers\Mut\KekkaController@getInsuranceContactMinData              | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/kekka/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Mut\KekkaController@getMaxMinData                           | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/kekka/pager/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Mut\KekkaController@getPager                                | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/kekka/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Mut\KekkaController@getSearchParams                         | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/kekka/search/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Mut\KekkaController@getSearch                               | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/kekka/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\Mut\KekkaController@getSortParams                           | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/kekka/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                          |               | App\Http\Controllers\Mut\KekkaController@getSortValue                            | auth,mai
+nten             |
+|        | GET|HEAD                       | mut/kekka/sort/{one?}/{two?}/{three?}/{four?}/{five?}                                |               | App\Http\Controllers\Mut\KekkaController@getSort                                 | auth,mai
+nten             |
+|        | POST                           | mut/kekka/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Mut\KekkaController@postStaffEachBase                       | auth,mai
+nten             |
+|        | POST                           | mut/kekka/upload/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Mut\KekkaController@postUpload                              | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | mut/kekka/{_missing}                                                                 |               | App\Http\Controllers\Mut\KekkaController@missingMethod                           | auth,mai
+nten             |
+|        | GET|HEAD                       | result/bouei                                                                         |               | App\Http\Controllers\Result\BoueiController@getIndex                             | auth,mai
+nten             |
+|        | GET|HEAD                       | result/bouei/each-staff/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Result\BoueiController@getEachStaff                         | auth,mai
+nten             |
+|        | GET|HEAD                       | result/bouei/index/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Result\BoueiController@getIndex                             | auth,mai
+nten             |
+|        | GET|HEAD                       | result/bouei/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}       |               | App\Http\Controllers\Result\BoueiController@getInsuranceContactMinData           | auth,mai
+nten             |
+|        | GET|HEAD                       | result/bouei/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Result\BoueiController@getMaxMinData                        | auth,mai
+nten             |
+|        | GET|HEAD                       | result/bouei/pager/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Result\BoueiController@getPager                             | auth,mai
+nten             |
+|        | GET|HEAD                       | result/bouei/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Result\BoueiController@getSearchParams                      | auth,mai
+nten             |
+|        | GET|HEAD                       | result/bouei/search/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Result\BoueiController@getSearch                            | auth,mai
+nten             |
+|        | GET|HEAD                       | result/bouei/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Result\BoueiController@getSortParams                        | auth,mai
+nten             |
+|        | GET|HEAD                       | result/bouei/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Result\BoueiController@getSortValue                         | auth,mai
+nten             |
+|        | GET|HEAD                       | result/bouei/sort/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Result\BoueiController@getSort                              | auth,mai
+nten             |
+|        | POST                           | result/bouei/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                  |               | App\Http\Controllers\Result\BoueiController@postStaffEachBase                    | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | result/bouei/{_missing}                                                              |               | App\Http\Controllers\Result\BoueiController@missingMethod                        | auth,mai
+nten             |
+|        | GET|HEAD                       | result/car                                                                           |               | App\Http\Controllers\Result\CarTypeController@getIndex                           | auth,mai
+nten             |
+|        | GET|HEAD                       | result/car/index/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Result\CarTypeController@getIndex                           | auth,mai
+nten             |
+|        | GET|HEAD                       | result/car/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}         |               | App\Http\Controllers\Result\CarTypeController@getInsuranceContactMinData         | auth,mai
+nten             |
+|        | GET|HEAD                       | result/car/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                       |               | App\Http\Controllers\Result\CarTypeController@getMaxMinData                      | auth,mai
+nten             |
+|        | GET|HEAD                       | result/car/pager/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Result\CarTypeController@getPager                           | auth,mai
+nten             |
+|        | GET|HEAD                       | result/car/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Result\CarTypeController@getSearchParams                    | auth,mai
+nten             |
+|        | GET|HEAD                       | result/car/search/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Result\CarTypeController@getSearch                          | auth,mai
+nten             |
+|        | GET|HEAD                       | result/car/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                        |               | App\Http\Controllers\Result\CarTypeController@getSortParams                      | auth,mai
+nten             |
+|        | GET|HEAD                       | result/car/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                         |               | App\Http\Controllers\Result\CarTypeController@getSortValue                       | auth,mai
+nten             |
+|        | GET|HEAD                       | result/car/sort/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Result\CarTypeController@getSort                            | auth,mai
+nten             |
+|        | POST                           | result/car/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Result\CarTypeController@postStaffEachBase                  | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | result/car/{_missing}                                                                |               | App\Http\Controllers\Result\CarTypeController@missingMethod                      | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status                                                                        |               | App\Http\Controllers\Result\StatusController@getIndex                            | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status/csv/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Result\StatusController@getCsv                              | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status/each-staff/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Result\StatusController@getEachStaff                        | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status/index/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Result\StatusController@getIndex                            | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}      |               | App\Http\Controllers\Result\StatusController@getInsuranceContactMinData          | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Result\StatusController@getMaxMinData                       | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status/pager/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Result\StatusController@getPager                            | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Result\StatusController@getSearchParams                     | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status/search/{one?}/{two?}/{three?}/{four?}/{five?}                          |               | App\Http\Controllers\Result\StatusController@getSearch                           | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Result\StatusController@getSortParams                       | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Result\StatusController@getSortValue                        | auth,mai
+nten             |
+|        | GET|HEAD                       | result/status/sort/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Result\StatusController@getSort                             | auth,mai
+nten             |
+|        | POST                           | result/status/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Result\StatusController@postStaffEachBase                   | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | result/status/{_missing}                                                             |               | App\Http\Controllers\Result\StatusController@missingMethod                       | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken                                                                        |               | App\Http\Controllers\Result\SyakenController@getIndex                            | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken/csv/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Result\SyakenController@getCsv                              | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken/each-staff/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Result\SyakenController@getEachStaff                        | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken/index/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Result\SyakenController@getIndex                            | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}      |               | App\Http\Controllers\Result\SyakenController@getInsuranceContactMinData          | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Result\SyakenController@getMaxMinData                       | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken/pager/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Result\SyakenController@getPager                            | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Result\SyakenController@getSearchParams                     | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken/search/{one?}/{two?}/{three?}/{four?}/{five?}                          |               | App\Http\Controllers\Result\SyakenController@getSearch                           | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Result\SyakenController@getSortParams                       | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Result\SyakenController@getSortValue                        | auth,mai
+nten             |
+|        | GET|HEAD                       | result/syaken/sort/{one?}/{two?}/{three?}/{four?}/{five?}                            |               | App\Http\Controllers\Result\SyakenController@getSort                             | auth,mai
+nten             |
+|        | POST                           | result/syaken/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Result\SyakenController@postStaffEachBase                   | auth,mai
+nten             |
+|        | POST                           | result/syaken/update/{one?}/{two?}/{three?}/{four?}/{five?}                          |               | App\Http\Controllers\Result\SyakenController@postUpdate                          | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | result/syaken/{_missing}                                                             |               | App\Http\Controllers\Result\SyakenController@missingMethod                       | auth,mai
+nten             |
+|        | GET|HEAD                       | result/tenken                                                                        |               | App\Http\Controllers\Result\TenkenController@getIndex                            | auth,mai
+nten             |
+|        | GET|HEAD                       | result/tenken/each-staff/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Result\TenkenController@getEachStaff                        | auth,mai
+nten             |
+|        | GET|HEAD                       | result/tenken/index/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Result\TenkenController@getIndex                            | auth,mai
+nten             |
+|        | GET|HEAD                       | result/tenken/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}      |               | App\Http\Controllers\Result\TenkenController@getInsuranceContactMinData          | auth,mai
+nten             |
+r@getSummaryByStaff                       | auth,mainten      min-data/{one?}/{two?}/{three?}/{four?}/{five?}                    |               | App\Http\Controllers\Result\TenkenController@getMaxMinData                       | auth,mai
+       |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | top/{_missing}    r/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Result\TenkenController@getPager                            | auth,mai
+
+     |               | App\Http\Controllers\Top\GraphControllech-params/{one?}/{two?}/{three?}/{four?}/{five?}                   |               | App\Http\Controllers\Result\TenkenController@getSearchParams                     | auth,mai
+r@missingMethod                           | auth,mainten      
+       |
++--------+--------------------------------+-------------------
+---------------------------------------------------------------params/{one?}/{two?}/{three?}/{four?}/{five?}                     |               | App\Http\Controllers\Result\TenkenController@getSortParams                       | auth,mai
+-----+---------------+----------------------------------------
+------------------------------------------+--------------------value/{one?}/{two?}/{three?}/{four?}/{five?}                      |               | App\Http\Controllers\Result\TenkenController@getSortValue                        | auth,mai
+-------+
+[root@c501e363af44 mieminami]#
+nten             |
+|        | POST                           | result/tenken/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                 |               | App\Http\Controllers\Result\TenkenController@postStaffEachBase                   | auth,mai
+nten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | result/tenken/{_missing}                                                             |               | App\Http\Controllers\Result\TenkenController@missingMethod                       | auth,mai
+nten             |
+|        | GET|HEAD                       | top                                                                                  |               | App\Http\Controllers\Top\GraphController@getIndex                                | auth,mai
+nten             |
+|        | GET|HEAD                       | top/csv/{one?}/{two?}/{three?}/{four?}/{five?}                                       |               | App\Http\Controllers\Top\GraphController@getCsv                                  | auth,mai
+nten             |
+|        | GET|HEAD                       | top/index/{one?}/{two?}/{three?}/{four?}/{five?}                                     |               | App\Http\Controllers\Top\GraphController@getIndex                                | auth,mai
+nten             |
+|        | GET|HEAD                       | top/insurance-contact-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                |               | App\Http\Controllers\Top\GraphController@getInsuranceContactMinData              | auth,mai
+nten             |
+|        | GET|HEAD                       | top/max-min-data/{one?}/{two?}/{three?}/{four?}/{five?}                              |               | App\Http\Controllers\Top\GraphController@getMaxMinData                           | auth,mai
+nten             |
+|        | GET|HEAD                       | top/pager/{one?}/{two?}/{three?}/{four?}/{five?}                                     |               | App\Http\Controllers\Top\GraphController@getPager                                | auth,mai
+nten             |
+|        | GET|HEAD                       | top/search-params/{one?}/{two?}/{three?}/{four?}/{five?}                             |               | App\Http\Controllers\Top\GraphController@getSearchParams                         | auth,mai
+nten             |
+|        | GET|HEAD                       | top/search/{one?}/{two?}/{three?}/{four?}/{five?}                                    |               | App\Http\Controllers\Top\GraphController@getSearch                               | auth,mai
+nten             |
+|        | GET|HEAD                       | top/sort-params/{one?}/{two?}/{three?}/{four?}/{five?}                               |               | App\Http\Controllers\Top\GraphController@getSortParams                           | auth,mai
+nten             |
+|        | GET|HEAD                       | top/sort-value/{one?}/{two?}/{three?}/{four?}/{five?}                                |               | App\Http\Controllers\Top\GraphController@getSortValue                            | auth,mai
+nten             |
+|        | GET|HEAD                       | top/sort/{one?}/{two?}/{three?}/{four?}/{five?}                                      |               | App\Http\Controllers\Top\GraphController@getSort                                 | auth,mai
+nten             |
+|        | POST                           | top/staff-each-base/{one?}/{two?}/{three?}/{four?}/{five?}                           |               | App\Http\Controllers\Top\GraphController@postStaffEachBase                       | auth,mai
+nten             |
+r@getSummaryByStaff                       | auth,mainten             |
+|        | GET|HEAD|POST|PUT|PATCH|DELETE | top/{_missing}                                                                       |               | App\Http\Controllers\Top\GraphController@missingMethod                           | auth,mainten             |
+nten             |
++--------+--------------------------------+--------------------------------------------------------------------------------------+---------------+----------------------------------------------------------------------------------+---------
+-----------------+
